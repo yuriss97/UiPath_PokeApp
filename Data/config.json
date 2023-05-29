@@ -1,0 +1,19 @@
+﻿{
+	"processQueueName":"PokeQueue",
+	"processQueueFolder":"PokemonApp",
+
+	"maxRetryNumberInitApplications": 3,
+	"maxRetryNumberProcess": 2,
+	"maxConsecutiveSystemExceptions": 2,
+
+	"useStorageBucketFiles": false,
+	"localBucketDir": "01-Data\\Temp\\",
+
+	"manualExecutionTime": 30,
+
+	"exScreenshotsFolderPath":"05-ExceptionScreenshots",
+
+	"businessProcessName":"Pokemon Application",
+    "bulbagardenUrl":"https://bulbagarden.net/",
+	"pokeApiEndpoint":"https://pokeapi.co/api/v2/pokemon?limit={0}&offset={1}"
+}
