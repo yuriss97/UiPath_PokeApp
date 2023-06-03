@@ -1,0 +1,350 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="GetPokemonsInfo" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="io_browser" Type="InOutArgument(ui:UiElement)" />
+    <x:Property Name="out_height" Type="OutArgument(x:String)" />
+    <x:Property Name="out_weight" Type="OutArgument(x:String)" />
+    <x:Property Name="out_dtMoves" Type="OutArgument(sd:DataTable)" />
+    <x:Property Name="out_type" Type="OutArgument(x:String)" />
+    <x:Property Name="out_color" Type="OutArgument(x:String)" />
+    <x:Property Name="out_hp" Type="OutArgument(x:String)" />
+    <x:Property Name="out_attack" Type="OutArgument(x:String)" />
+    <x:Property Name="out_defense" Type="OutArgument(x:String)" />
+    <x:Property Name="out_spDef" Type="OutArgument(x:String)" />
+    <x:Property Name="out_spAtk" Type="OutArgument(x:String)" />
+    <x:Property Name="out_speed" Type="OutArgument(x:String)" />
+    <x:Property Name="in_name" Type="InArgument(x:String)" />
+    <x:Property Name="out_total" Type="OutArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>2486,2244</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>GetPokemonsInfo_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+      <x:String>UiPath.OCR.Contracts</x:String>
+      <x:String>UiPath.OCR.Activities</x:String>
+      <x:String>UiPath.OCR.Contracts.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Text</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Text.Encoding.CodePages</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="GetPokemonsInfo" sap:VirtualizedContainerService.HintSize="2496,2179" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="ExtractedHeightDatatable" />
+      <Variable x:TypeArguments="sd:DataTable" Name="ExtractedWeightDatatable" />
+      <Variable x:TypeArguments="x:String" Name="regexPattern" />
+      <Variable x:TypeArguments="x:String" Name="stats" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="{x:Null}" ConnectionId="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Use Application/Browser" sap:VirtualizedContainerService.HintSize="2434,456" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InUiElement="[io_browser]" InteractionMode="DebuggerApi" IsIncognito="{x:Null}" OpenMode="Never" OutUiElement="[io_browser]" ScopeGuid="dd7a33b5-af1c-494a-af70-337903bc5856" Timeout="{x:Null}" UserDataFolderMode="{x:Null}" UserDataFolderPath="{x:Null}" Version="V1" WebDriverMode="{x:Null}">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do -  Extract Pokemon's Info (Parallel Activity)" sap:VirtualizedContainerService.HintSize="2400,319" sap2010:WorkflowViewState.IdRef="Sequence_31">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Parallel sap:VirtualizedContainerService.HintSize="2338,204" sap2010:WorkflowViewState.IdRef="Parallel_1">
+              <uix:NGetText ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Get Text 'Height'" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NGetText_8" InScope="{x:Null}" InUiElement="{x:Null}" OutUiElement="{x:Null}" ScopeIdentifier="dd7a33b5-af1c-494a-af70-337903bc5856" ScrapingOptions="{x:Null}" Timeout="{x:Null}" Version="V1" WordsInfo="{x:Null}">
+                <uix:NGetText.Target>
+                  <uix:TargetAnchorable BrowserURL="https://bulbapedia.bulbagarden.net/wiki/Sneasel_(Pok%C3%A9mon)" DesignTimeRectangle="780, 288, 72, 21" ElementType="Text" FriendlyName="'0.9 m'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table' tag='TABLE' parentid='mw-content-text' idx='10' /&gt;&lt;webctrl tableCol='2' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' parentid='mw-content-text' /&gt;&lt;webctrl type='' tag='TD' /&gt;" Guid="7d61ed7a-e0f7-4c39-9d15-0b21409ef3a1" ImageBase64="" InformativeScreenshot="e95f19dd668a6db9a51edcfa40e15e0c.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Sneasel (Pokémon) - Bulbapedia, the community-driven Pokémon encyclopedia' /&gt;" SearchSteps="FuzzySelector">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="759, 269, 40, 14" ElementType="Text" FriendlyName="'Height'" FullSelectorArgument="&lt;webctrl aaname='Height' parentid='mw-content-text' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Height' parentid='mw-content-text' tag='SPAN' type='' check:text='Height' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACwAAAASCAYAAAAg9DzcAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEMSURBVEhL7ZQxEoMgEEU5kI0zOUMKawu71FqmzYyFlbXeIBfdsIENsMAkoiQ6k+IVwvL/98so7tMIR+IfODdO4PlSgBAC6qs91EEt10TZwGzNBhkaOOFs1YX3HRboWuw7MOoxrW0DL+KNbuTlkwL3lXzGNW7omeizTwqoK1ufdAt1Rs+0Az+HnKHXHsHAQXQwFZYJU0AWODgrcQLzfSpgm4aZqESF0g04Jv6sq8/3b9CWMS11HkkL7KFbsk0Chr8LbLXmsL+GI/eSTJnJR3c4Fpj21wbGNRWEIAOJ14oJiXPtkoYlxodemgXOjSrEmKeQMTA1Zr6Y80dJJG/DdEVerGsX+eqV2IKDBR7hAY9iZk+mK+7fAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NGetText.Target>
+                <uix:NGetText.Text>
+                  <OutArgument x:TypeArguments="x:String">[out_height]</OutArgument>
+                </uix:NGetText.Text>
+              </uix:NGetText>
+              <uix:NGetText ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Get Text 'Weight'" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NGetText_6" InScope="{x:Null}" InUiElement="{x:Null}" OutUiElement="{x:Null}" ScopeIdentifier="dd7a33b5-af1c-494a-af70-337903bc5856" ScrapingOptions="{x:Null}" Timeout="{x:Null}" Version="V1" WordsInfo="{x:Null}">
+                <uix:NGetText.Target>
+                  <uix:TargetAnchorable BrowserURL="https://bulbapedia.bulbagarden.net/wiki/Sneasel_(Pok%C3%A9mon)" DesignTimeRectangle="935, 362, 72, 21" ElementType="Text" FriendlyName="'28.0 kg'" FullSelectorArgument="&lt;webctrl tableCol='2' tag='TD' aaname='*kg ' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' tag='TD' /&gt;" Guid="46df0473-b8b3-424b-8d79-20cb405f1647" ImageBase64="" InformativeScreenshot="8ef72303273c45095d40d00b9252dfbf.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='*Bulba*' /&gt;" SearchSteps="FuzzySelector">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="913, 343, 42, 14" ElementType="Text" FriendlyName="'Weight'" FullSelectorArgument="&lt;webctrl aaname='Weight' parentid='mw-content-text' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Weight' parentid='mw-content-text' tag='SPAN' type='' check:text='Weight' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAC4AAAASCAYAAAAkAezhAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFnSURBVEhL7ZQ7DsIwDIZ7oC6VeoYOnTt0Y6YjK1IHJma4ARc1JLZjx0kAQSlCYvilkof/z49QXU5H+EX9wdcWgU8wVBVUzQhn3jyM0Lq1m4YdX9jDtnFrHcx8LqPzpjb37oh9+im/XxCBp0Bs7tRu9nQhk2BGS4O7eDZWGJW5R0g+wL+9OOiuM4ksoAfgpSLIjEdQVNl+jDphg0TJqS4kZhQbz3Uw6O4yeFOH0Qx7+p6TSk7Adeb07ZJAiBq2BwZNvyVRDByDm/EKMAbc/s7GEgm4MpgVrHRiwup7gHTWMRE0j8yiTrqz5j0ZUJvoE+BSxTZ6qByIWukNaC0RJqvNUuMPgPMhrxCIjVDRG1AVz8VZreL6MYiRTohnujDjWTOTZGnGC+B8/j44X1KAXtaMhPAs2UuqpApi/6keggcmvZaAryEaFQXxij4PzhUNHaEKhgq/plUqLm+E9Ga1nb4wKsvoR8GPcAURgqKv+CKfgAAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NGetText.Target>
+                <uix:NGetText.Text>
+                  <OutArgument x:TypeArguments="x:String">[out_weight]</OutArgument>
+                </uix:NGetText.Text>
+              </uix:NGetText>
+              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'Type'" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="GetValue_3">
+                <ui:GetValue.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dbdda0ed-2615-4dbe-ad5c-a57609404ab4" InformativeScreenshot="d68513d3e02fbb913bdab6118364730b" Selector="&lt;html app='chrome.exe' title='*(Pokémon)*' /&gt;&lt;webctrl tag='TD' innertext='Type*' rowName='Type*' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:GetValue.Target>
+                <ui:GetValue.Value>
+                  <OutArgument x:TypeArguments="x:String">[out_type]</OutArgument>
+                </ui:GetValue.Value>
+              </ui:GetValue>
+              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'Pokemon's Color'" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="GetValue_2">
+                <ui:GetValue.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="58ee0dc2-200e-4973-b4b7-eb3d0c936fa1" InformativeScreenshot="01b006d382fcba76b4c2f87fdfe9e2f3" Selector="&lt;html app='chrome.exe' title='*(Pokémon)*' /&gt;&lt;webctrl tag='TR' rowName='Pokédex color*' idx='*' /&gt;&lt;webctrl tag='TD' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:GetValue.Target>
+                <ui:GetValue.Value>
+                  <OutArgument x:TypeArguments="x:String">[out_color]</OutArgument>
+                </ui:GetValue.Value>
+              </ui:GetValue>
+              <ui:ExtractData ContinueOnError="True" DataTable="[out_dtMoves]" DelayBetweenPagesMS="{x:Null}" DisplayName="Extract Structured Data 'Learnset'" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest' /&gt;" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="ExtractData_8" MaxNumberOfResults="100" NextLinkSelector="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="True">
+                <ui:ExtractData.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c632d3da-82fe-4816-8aa8-7b5cb15fdd18" InformativeScreenshot="588a9c528fd08a013ff398b3b5e018b3" Selector="&lt;ctrl name='*(Pokémon) - Bulbapedia, the community-driven Pokémon e*' role='document' /&gt;&lt;ctrl role='row' rowName='Level    Move    Type*' /&gt;&lt;ctrl role='table' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:ExtractData.Target>
+              </ui:ExtractData>
+              <uix:NGetText ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Get Text 'Stats'" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NGetText_13" InScope="{x:Null}" InUiElement="{x:Null}" OutUiElement="{x:Null}" ScopeIdentifier="dd7a33b5-af1c-494a-af70-337903bc5856" ScrapingOptions="{x:Null}" Timeout="{x:Null}" Version="V1" WordsInfo="{x:Null}">
+                <uix:NGetText.Target>
+                  <uix:TargetAnchorable BrowserURL="https://bulbapedia.bulbagarden.net/wiki/Raichu_(Pok%C3%A9mon)" DesignTimeRectangle="49, 273, 469, 301" FriendlyName="'StatRangeAt Lv.'" FullSelectorArgument="&lt;webctrl aaname='Stat Range*' tag='TABLE' parentid='mw-content-text' idx='1' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Stat Range*' tag='TABLE' parentid='mw-content-text' type='' /&gt;" Guid="34ecdd3d-d030-42c2-bb51-da1387f090ea" ImageBase64="" InformativeScreenshot="1a6079baadc33878971377e760948213.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='*Bulba*' /&gt;" SearchSteps="Selector" />
+                </uix:NGetText.Target>
+                <uix:NGetText.Text>
+                  <OutArgument x:TypeArguments="x:String">[stats]</OutArgument>
+                </uix:NGetText.Text>
+              </uix:NGetText>
+            </Parallel>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="87669b65e299350505fb78020037ae64.png" Selector="&lt;html app='chrome.exe' title='Poliwrath (Pokémon) - Bulbapedia, the community-driven Pokémon encyclopedia'/&gt;" />
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+    <Assign DisplayName="Assign regexPattern" sap:VirtualizedContainerService.HintSize="2434,82" sap2010:WorkflowViewState.IdRef="Assign_10">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[regexPattern]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">["([\s\S]*?)\s+" + in_name + "\b"]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <If Condition="[out_type.Contains(in_name)]" DisplayName="If &quot;Type&quot; has pokemon's name" sap:VirtualizedContainerService.HintSize="2434,352" sap2010:WorkflowViewState.IdRef="If_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence DisplayName="Sequence - Keep Only original type" sap:VirtualizedContainerService.HintSize="476,170" sap2010:WorkflowViewState.IdRef="Sequence_19">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign DisplayName="Assign out_type - Keep only original type" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_3">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[out_type]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[Regex.Match(out_type,regexPattern).ToString.Trim]</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_20">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </If.Else>
+    </If>
+    <Assign DisplayName="Assign out_type - Remove everything that is not a pokemon type" sap:VirtualizedContainerService.HintSize="2434,82" sap2010:WorkflowViewState.IdRef="Assign_11">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_type]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[Regex.Replace(out_type, "(?i)\b(?!(Normal|Fighting|Flying|Poison|Ground|Rock|Bug|Ghost|Steel|Fire|Water|Grass|Electric|Psychic|Ice|Dragon|Dark|Fairy))\w+\b", "").Trim]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign out_color - Remove everything that is not a color" sap:VirtualizedContainerService.HintSize="2434,82" sap2010:WorkflowViewState.IdRef="Assign_13">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_color]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[Regex.Match(out_color, "(?i)(Red|Blue|Yellow|Green|Purple|Pink|Brown|White|Black|Orange)").Value]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign type - Remove useless info" sap:VirtualizedContainerService.HintSize="2434,82" sap2010:WorkflowViewState.IdRef="Assign_4">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_hp]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Match(stats, "HP:(\d+)").Groups(1).Value]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign type - Remove useless info" sap:VirtualizedContainerService.HintSize="2434,82" sap2010:WorkflowViewState.IdRef="Assign_5">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_attack]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Match(stats, "Attack:(\d+)").Groups(1).Value]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign type - Remove useless info" sap:VirtualizedContainerService.HintSize="2434,82" sap2010:WorkflowViewState.IdRef="Assign_6">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_defense]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Match(stats, "Defense:(\d+)").Groups(1).Value]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign type - Remove useless info" sap:VirtualizedContainerService.HintSize="2434,82" sap2010:WorkflowViewState.IdRef="Assign_7">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_spAtk]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Match(stats, "Sp. Atk:(\d+)").Groups(1).Value]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign type - Remove useless info" sap:VirtualizedContainerService.HintSize="2434,82" sap2010:WorkflowViewState.IdRef="Assign_8">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_spDef]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Match(stats, "Sp. Def:(\d+)").Groups(1).Value]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign type - Remove useless info" sap:VirtualizedContainerService.HintSize="2434,82" sap2010:WorkflowViewState.IdRef="Assign_9">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_speed]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Match(stats, "Speed:(\d+)").Groups(1).Value]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign type - Remove useless info" sap:VirtualizedContainerService.HintSize="2434,82" sap2010:WorkflowViewState.IdRef="Assign_12">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_total]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Match(stats, "Total:(\d+)").Groups(1).Value]</InArgument>
+      </Assign.Value>
+    </Assign>
+  </Sequence>
+</Activity>
