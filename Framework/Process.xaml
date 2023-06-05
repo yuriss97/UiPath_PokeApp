@@ -134,63 +134,33 @@
         <InOutArgument x:TypeArguments="ui:UiElement" x:Key="io_browser">
           <VisualBasicReference x:TypeArguments="ui:UiElement" ExpressionText="io_browser" />
         </InOutArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_pokemonName" />
+        <InArgument x:TypeArguments="x:String" x:Key="in_pokemonName">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TransactionItem.SpecificContent(&quot;Name&quot;).ToString" />
+        </InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Workflows\GetPokemonsInfo.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows\GetPokemonsInfo.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InOutArgument x:TypeArguments="ui:UiElement" x:Key="io_browser">
-          <VisualBasicReference x:TypeArguments="ui:UiElement" ExpressionText="io_browser" />
-        </InOutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_height">
-          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_height" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_weight">
-          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_weight" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtMoves">
-          <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dtMoves" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_type">
-          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_pokemonType" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_color">
-          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_pokemonColor" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_hp">
-          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_hp" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_attack">
-          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_attack" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_defense">
-          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_defense" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_spDef">
-          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_spDef" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_spAtk">
-          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_spAtk" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_speed">
-          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_speed" />
-        </OutArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_name">
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_transactionItem.SpecificContent(&quot;Name&quot;).ToString.Substring(0, 1).ToUpper+ in_transactionItem.SpecificContent(&quot;Name&quot;).ToString.Substring(1)" />
-        </InArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_total">
-          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_total" />
-        </OutArgument>
+        <InOutArgument x:TypeArguments="ui:UiElement" x:Key="io_browser">[io_browser]</InOutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_height">[out_height]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_weight">[out_weight]</OutArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtMoves">[dtMoves]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_type">[out_pokemonType]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_color">[out_pokemonColor]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_hp">[out_hp]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_attack">[out_attack]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_defense">[out_defense]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_spDef">[out_spDef]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_spAtk">[out_spAtk]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_speed">[out_speed]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_name">[in_transactionItem.SpecificContent("Name").ToString.Substring(0, 1).ToUpper+ in_transactionItem.SpecificContent("Name").ToString.Substring(1)]</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_total">[out_total]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Workflows\GetMostPowerfulMove.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Workflows\GetMostPowerfulMove.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtMoves">
-          <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dtMoves" />
-        </InArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_mostPowerfulMove">
-          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_mostPowerfulMove" />
-        </OutArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtMoves">[dtMoves]</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_mostPowerfulMove">[out_mostPowerfulMove]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="388,56" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
